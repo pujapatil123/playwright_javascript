@@ -2,9 +2,9 @@ const {test, expect} = require('@playwright/test')
 const {LoginPage} = require("../../pom/loginpage")
 const {DashboardPage} = require("../../pom/dashboardpage")
 
-const testData = JSON.parse(JSON.stringify(require('../../utils/testdata.json')));
-const testDataArray = JSON.parse(JSON.stringify(require('../../utils/testdata2.json')));
-const customTest = require('../../utils/customfixture');
+const testData = JSON.parse(JSON.stringify(require('../utils/testdata.json')));
+const testDataArray = JSON.parse(JSON.stringify(require('../utils/testdata2.json')));
+
 
 test('Verify login using page object model', async ({page}) => {
    const url = 'https://example.com/login'; 
@@ -30,7 +30,7 @@ test(`Verify multiple test - ${dataSet.username}`, async ({page}) => {
 });
 }
 
-customTest('Verify custom fixture data', async ({page, testdataforLogin}) => {
+test('Verify custom fixture data', async ({page, testdataforLogin}) => {
    const url = 'https://example.com/login'; 
       
    const loginPage = new LoginPage(page);
